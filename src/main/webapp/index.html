@@ -1,0 +1,65 @@
+<!--
+	Index - HTML
+
+	@author Jo44
+	@version 1.0 (21/04/2026)
+	@since 21/04/2026
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<!-- Head -->
+<head>
+<meta charset="UTF-8">
+<title>LangSwap-WS</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<!-- CSS -->
+<link rel="stylesheet" href="./css/index.css" />
+</head>
+<!-- Body -->
+<body>
+	<!-- Page Wrapper -->
+	<div class="page-wrapper">
+		<!-- Header -->
+		<header>
+			<div class="header-ornament top"></div>
+			<h1>LangSwap</h1>
+			<h2>Obfuscated Translations</h2>
+			<div class="header-ornament bottom"></div>
+		</header>
+		<!-- Main -->
+		<main>
+			<!-- Toolbar -->
+			<div class="toolbar">
+				<p id="status">Loading ...</p>
+				<button id="download-csv" disabled>Download CSV</button>
+			</div>
+			<!-- Table Wrapper -->
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Action ID</th>
+							<th>Obfuscated Name</th>
+							<th>Language</th>
+							<th>De-obfuscated Name</th>
+							<th>Update</th>
+							<th>By</th>
+						</tr>
+					</thead>
+					<!-- Data -->
+					<tbody id="translations-body"></tbody>
+				</table>
+			</div>
+		</main>
+		<!-- Footer -->
+		<footer>
+			<p>LangSwap WebService &mdash; Collected data from LangSwap plugin</p>
+		</footer>
+	</div>
+	<!-- JavaScript -->
+	<script src="./js/index.js"></script>
+</body>
+</html>

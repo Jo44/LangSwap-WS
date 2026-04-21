@@ -1,0 +1,13 @@
+.classpath
+.cursor
+.git
+.project
+.settings
+.vs
+target
+WebContent
+src/main/resources/*
+src/main/webapp/WEB-INF/classes
+src/main/webapp/WEB-INF/lib
+src/test/resources/*
+LangSwap-WS.postman_collection.json

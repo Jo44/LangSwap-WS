@@ -1,0 +1,245 @@
+/*
+ * Index - CSS
+ *
+ * @author Jo44
+ * @version 1.0 (21/04/2026)
+ * @since 21/04/2026
+ */
+
+/* ------------------------- */
+/* Variables */
+/* ------------------------- */
+:root {
+	--gold: #c8a96e;
+	--gold-light: #dbbd6f;
+	--gold-dark: #8b6914;
+	--bg: #0d0d12;
+	--bg-panel: #13131e;
+	--bg-row-alt: #16161f;
+	--border: #2e2b3a;
+	--text: #dcd6c0;
+	--text-dim: #7a7560;
+	--red-error: #a04040;
+}
+
+/* ------------------------- */
+/* Reset & base */
+/* ------------------------- */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: 'EB Garamond', Georgia, serif;
+	font-size: 1rem;
+	min-height: 100vh;
+}
+
+/* ------------------------- */
+/* Page wrapper */
+/* ------------------------- */
+.page-wrapper {
+	max-width: 1720px;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ------------------------- */
+/* Header */
+/* ------------------------- */
+header {
+	text-align: center;
+	padding: 2rem 1rem;
+}
+
+header h1 {
+	font-family: 'Cinzel', serif;
+	font-size: 3rem;
+	font-weight: 600;
+	color: var(--gold);
+	letter-spacing: 0.25em;
+	text-transform: uppercase;
+	text-shadow: 0 0 18px rgba(200, 169, 110, 0.4);
+}
+
+header h2 {
+	font-family: 'Cinzel', serif;
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: var(--gold-light);
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	margin-top: 0.4rem;
+}
+
+.header-ornament {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: var(--gold-dark);
+	font-size: 1.1rem;
+}
+
+.header-ornament::before, .header-ornament::after {
+	content: '';
+	flex: 1;
+	height: 1px;
+	background: linear-gradient(to right, transparent, var(--gold-dark),
+		transparent);
+}
+
+.header-ornament.top {
+	margin-bottom: 1.5rem;
+}
+
+.header-ornament.top::before {
+	background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.header-ornament.top::after {
+	background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.header-ornament.bottom {
+	margin-top: 1.5rem;
+}
+
+.header-ornament.bottom::before {
+	background: linear-gradient(to right, transparent, var(--gold-dark));
+}
+
+.header-ornament.bottom::after {
+	background: linear-gradient(to left, transparent, var(--gold-dark));
+}
+
+/* ------------------------- */
+/* Toolbar */
+/* ------------------------- */
+.toolbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+#status {
+	color: var(--text-dim);
+	font-style: normal;
+	font-size: 1.1rem;
+}
+
+/* ------------------------- */
+/* Download CSV button */
+/* ------------------------- */
+#download-csv {
+	font-family: 'Cinzel', serif;
+	font-size: 0.85rem;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	color: var(--bg);
+	background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+	border: 1px solid var(--gold);
+	padding: 0.33rem 1rem;
+	cursor: pointer;
+	clip-path: polygon(5px 0%, calc(100% - 5px) 0%, 100% 100%, 0% 100%);
+}
+
+#download-csv:hover:not(:disabled) {
+	background: linear-gradient(135deg, var(--gold-light), var(--gold));
+	box-shadow: 0 0 12px rgba(200, 169, 110, 0.45);
+}
+
+#download-csv:disabled {
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+/* ------------------------- */
+/* Table wrapper */
+/* ------------------------- */
+.table-wrapper {
+	overflow-x: auto;
+	border: 1px solid var(--border);
+	background-color: var(--bg-panel);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	background: linear-gradient(180deg, #1c1a2e, #13131e);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+th {
+	font-family: 'Cinzel', serif;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--gold);
+	padding: 0.5rem;
+	border-bottom: 1px solid var(--gold-dark);
+	border-right: 1px solid var(--border);
+	text-align: center;
+	white-space: nowrap;
+}
+
+th:last-child {
+	border-right: none;
+}
+
+td {
+	font-size: 0.9rem;
+	color: var(--text);
+	padding: 0.33rem 0.5rem;
+	border-bottom: 1px solid var(--border);
+	border-right: 1px solid var(--border);
+	vertical-align: middle;
+	text-align: center;
+}
+
+td:last-child {
+	border-right: none;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: var(--bg-row-alt);
+}
+
+tbody tr:hover {
+	background-color: #1e1c30;
+}
+
+.language-flag {
+	width: 24px;
+	height: 16px;
+	object-fit: cover;
+	border: 1px solid var(--border);
+	border-radius: 2px;
+}
+
+/* ------------------------- */
+/* Footer */
+/* ------------------------- */
+footer {
+	text-align: center;
+	color: var(--text-dim);
+	font-size: 1.1rem;
+	font-style: normal;
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--border);
+}

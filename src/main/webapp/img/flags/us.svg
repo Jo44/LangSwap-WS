@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10" role="img" aria-label="USA">
+  <rect width="19" height="10" fill="#ffffff"/>
+  <rect width="19" height="0.7692" y="0" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="1.5384" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="3.0768" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="4.6152" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="6.1536" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="7.692" fill="#b22234"/>
+  <rect width="19" height="0.7692" y="9.2304" fill="#b22234"/>
+  <rect width="7.6" height="5.3846" x="0" y="0" fill="#3c3b6e"/>
+</svg>
