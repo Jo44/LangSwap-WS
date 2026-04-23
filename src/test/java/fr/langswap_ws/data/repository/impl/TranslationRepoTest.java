@@ -71,7 +71,7 @@ class TranslationRepoTest {
 			Translation first = createTranslation(1, 10, "aaa_name");
 			when(session.createQuery("SELECT t FROM Translation t", Translation.class))
 					.thenReturn(translationQuery);
-			when(translationQuery.getResultList()).thenReturn(List.of(second, first));
+			when(translationQuery.getResultList()).thenReturn(List.of(first, second));
 
 			List<Translation> result = translationRepo.getAll();
 

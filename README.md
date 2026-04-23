@@ -9,4 +9,6 @@ LangSwap project : https://github.com/Jo44/LangSwap
 # Changelog
 
 * Update 1.0 - 21/04/2026 :  
-  * Initial commit
+  * Initial commit  
+* Update 1.1 - 23/04/2026 :  
+  * Adjusted list sorting (last uploads on top)

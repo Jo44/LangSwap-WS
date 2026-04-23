@@ -64,9 +64,8 @@ public class TranslationRepo implements ITranslationRepo {
 			// Add translations to the list
 			translations.addAll(translationsResult);
 			// Sort list
-			translations.sort(Comparator.comparing(Translation::getActionId)
-					.thenComparing(Translation::getObfuscatedName)
-					.thenComparing(Translation::getCreationDate));
+			translations.sort(Comparator.comparing(Translation::getCreationDate)
+					.thenComparing(Translation::getObfuscatedName));
 			// Close session
 			hibernate.validateSession(session);
 			LOGGER.debug("Translations retrieved successfully.");
