@@ -45,8 +45,6 @@ public class TranslationRepo implements ITranslationRepo {
 		getOne = settings.getString("sql.get.one");
 	}
 
-	/* Translation - Get */
-
 	/** Get all translations
 	 *
 	 * @return List<Translation>
@@ -118,8 +116,6 @@ public class TranslationRepo implements ITranslationRepo {
 		}
 		return translation;
 	}
-
-	/* Translation - Add */
 
 	/** Add translation
 	 *
