@@ -2,7 +2,7 @@
  * Index - JS
  *
  * @author Jo44
- * @version 1.1 (21/04/2026)
+ * @version 1.2 (26/04/2026)
  * @since 21/04/2026
  */
 
@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const statusElement = document.getElementById("status");
     const tableBodyElement = document.getElementById("translations-body");
     const downloadButton = document.getElementById("download-csv");
+    const sortableHeaders = Array.from(document.querySelectorAll("th.sortable"));
 
     // API URL
     const translationsUrl = new URL("/LangSwap-WS/api/home/", window.location.href);
@@ -63,27 +64,47 @@ document.addEventListener("DOMContentLoaded", async () => {
         return languageFlags[languageId] ?? null;
     };
 
-    // Main logic
-    try {
-        // Fetch translations from API
-        const response = await fetch(translationsUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP ${response.status}`);
+    // Sorting state
+    let currentSortKey = null;
+    let currentSortDirection = "asc";
+
+    // Sort values by supported property type
+    const compareValues = (leftValue, rightValue, sortKey) => {
+        if (sortKey === "actionId" || sortKey === "languageId" || sortKey === "creationDate") {
+            const leftNumber = Number(leftValue ?? 0);
+            const rightNumber = Number(rightValue ?? 0);
+            return leftNumber - rightNumber;
         }
-        const translations = await response.json();
+
+        const leftText = String(leftValue ?? "").toLowerCase();
+        const rightText = String(rightValue ?? "").toLowerCase();
+        return leftText.localeCompare(rightText, "fr");
+    };
+
+    // Return a sorted copy of translations depending on current state
+    const getSortedTranslations = (translations) => {
+        if (!currentSortKey) {
+            return [...translations];
+        }
+
+        const sortedTranslations = [...translations].sort((leftTranslation, rightTranslation) => {
+            const comparison = compareValues(leftTranslation[currentSortKey], rightTranslation[currentSortKey], currentSortKey);
+            if (comparison !== 0) {
+                return currentSortDirection === "asc" ? comparison : -comparison;
+            }
+            return Number(leftTranslation.actionId ?? 0) - Number(rightTranslation.actionId ?? 0);
+        });
+
+        return sortedTranslations;
+    };
+
+    // Render table body from an array
+    const renderTable = (translations) => {
         tableBodyElement.innerHTML = "";
 
-        // Check if there are translations to display
-        if (!Array.isArray(translations) || translations.length === 0) {
-            statusElement.textContent = "No translations found";
-            return;
-        }
-
-        // Populate table with translations
         translations.forEach((translation) => {
             const row = document.createElement("tr");
 
-            // Create cells for each translation property
             row.appendChild(createTextCell(translation.actionId));
             row.appendChild(createTextCell(translation.obfuscatedName));
             row.appendChild(createLanguageCell(translation.languageId));
@@ -92,6 +113,60 @@ document.addEventListener("DOMContentLoaded", async () => {
             row.appendChild(createTextCell(translation.characterName));
 
             tableBodyElement.appendChild(row);
+        });
+    };
+
+    // Update arrows and ARIA state on headers
+    const updateSortHeaders = () => {
+        sortableHeaders.forEach((headerElement) => {
+            const sortKey = headerElement.dataset.sortKey;
+            headerElement.classList.remove("sorted-asc", "sorted-desc");
+            headerElement.setAttribute("aria-sort", "none");
+
+            if (sortKey === currentSortKey) {
+                const ariaSort = currentSortDirection === "asc" ? "ascending" : "descending";
+                headerElement.classList.add(currentSortDirection === "asc" ? "sorted-asc" : "sorted-desc");
+                headerElement.setAttribute("aria-sort", ariaSort);
+            }
+        });
+    };
+
+    // Main logic
+    try {
+        // Fetch translations from API
+        const response = await fetch(translationsUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        const translations = await response.json();
+        
+        // Check if there are translations to display
+        if (!Array.isArray(translations) || translations.length === 0) {
+            statusElement.textContent = "No translations found";
+            return;
+        }
+
+        // Default sort (latest uploads first)
+        currentSortKey = "creationDate";
+        currentSortDirection = "desc";
+        renderTable(getSortedTranslations(translations));
+        updateSortHeaders();
+
+        // Click on headers to sort by column
+        sortableHeaders.forEach((headerElement) => {
+            headerElement.addEventListener("click", () => {
+                const sortKey = headerElement.dataset.sortKey;
+
+                if (currentSortKey === sortKey) {
+                    currentSortDirection = currentSortDirection === "asc" ? "desc" : "asc";
+                } else {
+                    currentSortKey = sortKey;
+                    currentSortDirection = "asc";
+                }
+
+                renderTable(getSortedTranslations(translations));
+                updateSortHeaders();
+            });
         });
 
         // Update status

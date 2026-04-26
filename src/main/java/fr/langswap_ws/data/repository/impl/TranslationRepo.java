@@ -22,7 +22,7 @@ import jakarta.persistence.PersistenceException;
 /** Translation repository
  *
  * @author Jo44
- * @version 1.0 (21/04/2026)
+ * @version 1.1 (23/04/2026)
  * @since 21/04/2026 */
 @Singleton
 public class TranslationRepo implements ITranslationRepo {
