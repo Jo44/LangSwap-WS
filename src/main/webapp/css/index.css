@@ -231,6 +231,7 @@ td {
 	font-size: 0.9rem;
 	color: var(--text);
 	padding: 0.33rem 0.5rem;
+	min-height: 2.2rem;
 	border-bottom: 1px solid var(--border);
 	border-right: 1px solid var(--border);
 	vertical-align: middle;
@@ -243,6 +244,10 @@ td:last-child {
 
 tbody tr:nth-child(odd) {
 	background-color: var(--bg-row-alt);
+}
+
+tbody tr {
+	height: 2.2rem;
 }
 
 tbody tr:hover {
