@@ -1,4 +1,4 @@
-package fr.langswap_ws.domain.usecase.api;
+package fr.langswap_ws.domain.usecase.inter;
 
 import java.util.List;
 import fr.langswap_ws.domain.exception.FunctionalException;

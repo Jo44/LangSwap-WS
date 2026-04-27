@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import fr.langswap_ws.config.Hibernate;
 import fr.langswap_ws.config.Settings;
-import fr.langswap_ws.data.repository.api.ITranslationRepo;
+import fr.langswap_ws.data.repository.inter.ITranslationRepo;
 import fr.langswap_ws.domain.exception.AlreadyExistException;
 import fr.langswap_ws.domain.exception.FunctionalException;
 import fr.langswap_ws.domain.exception.NotExistException;

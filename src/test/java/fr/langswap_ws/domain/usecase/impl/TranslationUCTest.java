@@ -19,13 +19,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import fr.langswap_ws.data.repository.api.ITranslationRepo;
+
+import fr.langswap_ws.data.repository.inter.ITranslationRepo;
 import fr.langswap_ws.domain.exception.FunctionalException;
 import fr.langswap_ws.domain.exception.NotExistException;
 import fr.langswap_ws.domain.model.base.Language;
 import fr.langswap_ws.domain.model.dto.TranslationDTO;
 import fr.langswap_ws.domain.model.entity.Translation;
-import fr.langswap_ws.domain.model.mapper.api.ITranslationMapper;
+import fr.langswap_ws.domain.model.mapper.inter.ITranslationMapper;
 import fr.langswap_ws.presentation.validator.RequestValidator;
 
 /** Translation use-cases test

@@ -1,4 +1,4 @@
-package fr.langswap_ws.presentation.endpoint.api;
+package fr.langswap_ws.presentation.endpoint.inter;
 
 import fr.langswap_ws.domain.exception.TechnicalException;
 import jakarta.ws.rs.GET;

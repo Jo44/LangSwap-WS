@@ -1,4 +1,4 @@
-package fr.langswap_ws.domain.model.mapper.api;
+package fr.langswap_ws.domain.model.mapper.inter;
 
 import java.util.List;
 import fr.langswap_ws.domain.model.dto.TranslationDTO;

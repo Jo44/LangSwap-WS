@@ -1,4 +1,4 @@
-package fr.langswap_ws.presentation.endpoint.api;
+package fr.langswap_ws.presentation.endpoint.inter;
 
 import java.util.List;
 import fr.langswap_ws.domain.exception.FunctionalException;

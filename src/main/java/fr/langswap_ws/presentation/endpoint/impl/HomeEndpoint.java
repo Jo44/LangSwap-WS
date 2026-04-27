@@ -8,7 +8,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import fr.langswap_ws.config.Settings;
 import fr.langswap_ws.domain.exception.TechnicalException;
-import fr.langswap_ws.presentation.endpoint.api.IHomeEndpoint;
+import fr.langswap_ws.presentation.endpoint.inter.IHomeEndpoint;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import jakarta.servlet.http.HttpServletRequest;

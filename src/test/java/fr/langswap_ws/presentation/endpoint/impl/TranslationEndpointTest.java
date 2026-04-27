@@ -17,7 +17,7 @@ import fr.langswap_ws.domain.exception.FunctionalException;
 import fr.langswap_ws.domain.exception.TechnicalException;
 import fr.langswap_ws.domain.model.base.Language;
 import fr.langswap_ws.domain.model.dto.TranslationDTO;
-import fr.langswap_ws.domain.usecase.api.ITranslationUC;
+import fr.langswap_ws.domain.usecase.inter.ITranslationUC;
 
 /** Translation endpoint test
  *

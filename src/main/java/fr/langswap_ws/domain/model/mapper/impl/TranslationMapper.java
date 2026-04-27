@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import fr.langswap_ws.domain.model.base.Language;
 import fr.langswap_ws.domain.model.dto.TranslationDTO;
 import fr.langswap_ws.domain.model.entity.Translation;
-import fr.langswap_ws.domain.model.mapper.api.ITranslationMapper;
+import fr.langswap_ws.domain.model.mapper.inter.ITranslationMapper;
 import jakarta.inject.Singleton;
 
 /** Translation mapper

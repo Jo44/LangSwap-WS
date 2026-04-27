@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import fr.langswap_ws.data.repository.api.ITranslationRepo;
+
+import fr.langswap_ws.data.repository.inter.ITranslationRepo;
 import fr.langswap_ws.domain.exception.FunctionalException;
 import fr.langswap_ws.domain.exception.NotExistException;
 import fr.langswap_ws.domain.exception.TechnicalException;
 import fr.langswap_ws.domain.model.dto.TranslationDTO;
 import fr.langswap_ws.domain.model.entity.Translation;
-import fr.langswap_ws.domain.model.mapper.api.ITranslationMapper;
-import fr.langswap_ws.domain.usecase.api.ITranslationUC;
+import fr.langswap_ws.domain.model.mapper.inter.ITranslationMapper;
+import fr.langswap_ws.domain.usecase.inter.ITranslationUC;
 import fr.langswap_ws.presentation.exception.InvalidRequestException;
 import fr.langswap_ws.presentation.validator.RequestValidator;
 import jakarta.inject.Inject;
